@@ -104,9 +104,9 @@ def main():
     X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2, random_state=7)
 
     model = Model(X_train, y_train, X_valid, y_valid)
-    # model.train_model(clf=model.rfc)
-    # model.train_model(clf=model.knn)
-    # model.train_model(clf=model.svm_clf)
+    model.train_model(clf=model.rfc)
+    model.train_model(clf=model.knn)
+    model.train_model(clf=model.svm_clf)
     model.train_model(clf=model.bc)
 
     # predict_labels('cell_price_data/test.csv', model.rfc)
