@@ -13,10 +13,9 @@ Info          precision    recall  f1-score   support
            1       0.90      0.85      0.87        92
            2       0.86      0.87      0.87        86
            3       0.96      0.97      0.96        91
-
-    accuracy                           0.92       364
    macro avg       0.92      0.92      0.92       364
 weighted avg       0.92      0.92      0.92       364
+    accuracy                           0.92       364
 
 KNeighborsClassifier Classifier Accuracy Score:  0.9340659340659341
 Info          precision    recall  f1-score   support
