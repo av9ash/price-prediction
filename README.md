@@ -25,10 +25,9 @@ Info          precision    recall  f1-score   support
            1       0.93      0.97      0.95        92
            2       0.87      0.88      0.88        86
            3       0.94      0.90      0.92        91
-
-    accuracy                           0.93       364
    macro avg       0.93      0.93      0.93       364
 weighted avg       0.93      0.93      0.93       364
+    accuracy                           0.93       364
 
 SVC Classifier Accuracy Score:  0.9725274725274725
 Info          precision    recall  f1-score   support
