@@ -6,7 +6,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 # Cell Phone Price Prediction Results: 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-RandomForestClassifier Classifier Accuracy Score:  0.9203296703296703
+
+RandomForestClassifier Classifier
 
 
            0       0.96      0.97      0.96        95
@@ -17,8 +18,8 @@ RandomForestClassifier Classifier Accuracy Score:  0.9203296703296703
     accuracy                           0.92       364
 
 
-KNeighborsClassifier Classifier Accuracy Score:  0.9340659340659341
-              precision    recall  f1-score   support
+KNeighborsClassifier
+
 
            0       0.99      0.98      0.98        95
            1       0.93      0.97      0.95        92
@@ -28,8 +29,8 @@ KNeighborsClassifier Classifier Accuracy Score:  0.9340659340659341
     accuracy                           0.93       364
 
 
-SVC Classifier Accuracy Score:  0.9725274725274725
-              precision    recall  f1-score   support
+SVC Classifier
+              
 
            0       1.00      0.98      0.99        95
            1       0.95      0.98      0.96        92
@@ -39,8 +40,8 @@ SVC Classifier Accuracy Score:  0.9725274725274725
     accuracy                           0.97       364
 
 
-BaggingClassifier Classifier Accuracy Score:  0.978021978021978
-              precision    recall  f1-score   support
+BaggingClassifier Classifier
+              
 
            0       1.00      0.98      0.99        95
            1       0.96      0.99      0.97        92
