@@ -42,5 +42,18 @@ SVC Classifier Accuracy Score:  0.9725274725274725
    macro avg       0.97      0.97      0.97       364
 weighted avg       0.97      0.97      0.97       364
 
+
+BaggingClassifier Classifier Accuracy Score:  0.9752747252747253
+              precision    recall  f1-score   support
+
+           0       1.00      0.98      0.99        95
+           1       0.94      1.00      0.97        92
+           2       0.99      0.93      0.96        86
+           3       0.98      0.99      0.98        91
+
+    accuracy                           0.98       364
+   macro avg       0.98      0.97      0.97       364
+weighted avg       0.98      0.98      0.98       364
+
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
