@@ -6,6 +6,7 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import svm
+from sklearn.ensemble import BaggingClassifier
 
 
 class Model:
@@ -13,6 +14,7 @@ class Model:
         self.rfc = RandomForestClassifier(criterion="gini", n_jobs=-1, random_state=9)
         self.knn = KNeighborsClassifier(n_neighbors=3, algorithm="auto", n_jobs=-1)
         self.svm_clf = svm.SVC(break_ties=True, kernel="linear")
+        self.bc = BaggingClassifier(self.svm_clf, max_samples=0.5, n_estimators=100)
         self.X_train = x_train
         self.y_train = y_train
         self.X_valid = x_valid
@@ -104,7 +106,8 @@ def main():
     model = Model(X_train, y_train, X_valid, y_valid)
     # model.train_model(clf=model.rfc)
     # model.train_model(clf=model.knn)
-    model.train_model(clf=model.svm_clf)
+    # model.train_model(clf=model.svm_clf)
+    model.train_model(clf=model.bc)
 
     # predict_labels('cell_price_data/test.csv', model.rfc)
     # predict_labels('cell_price_data/test.csv', model.knn)
