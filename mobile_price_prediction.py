@@ -10,10 +10,9 @@ from sklearn import svm
 
 class Model:
     def __init__(self, x_train, y_train, x_valid, y_valid):
-        self.rfc = RandomForestClassifier(bootstrap=True, max_depth=7, max_features=15, min_samples_leaf=3,
-                                          min_samples_split=10, n_estimators=100, random_state=7)
-        self.knn = KNeighborsClassifier(n_neighbors=3, leaf_size=25)
-        self.svm_clf = svm.SVC(decision_function_shape='ovo')
+        self.rfc = RandomForestClassifier(criterion="gini", n_jobs=-1, random_state=9)
+        self.knn = KNeighborsClassifier(n_neighbors=3, algorithm="auto", n_jobs=-1)
+        self.svm_clf = svm.SVC(break_ties=True, kernel="linear")
         self.X_train = x_train
         self.y_train = y_train
         self.X_valid = x_valid
@@ -79,29 +78,37 @@ def load_data(file_name):
     return data
 
 
-def main():
-    train_data = load_data('cell_price_data/train.csv')
-    X, y = get_X_y(train_data)
+def explore_data(train_data, X):
+    show_price_range_distribution(train_data)
+    show_battery_capacity_distribution(train_data)
+    show_mobile_depth_dstribution(train_data)
+    show_missing_values(X)
 
-    # show_price_range_distribution(train_data)
-    # show_battery_capacity_distribution(train_data)
-    # show_mobile_depth_dstribution(train_data)
-    # show_missing_values(X)
 
-    X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2, random_state=7)
-
-    model = Model(X_train, y_train, X_valid, y_valid)
-    model.train_model(clf=model.rfc)
-    model.train_model(clf=model.knn)
-    model.train_model(clf=model.svm_clf)
-
-    test_data = load_data('cell_price_data/test.csv')
+def predict_labels(file_name, trained_clf):
+    test_data = load_data(file_name)
     X_test = test_data.drop(['id'], axis=1)
 
     # missing values
     # show_missing_values(X_test)
-    y_pred_svm = model.svm_clf.predict(X_test)
+    y_pred_svm = trained_clf.predict(X_test)
     print(list(y_pred_svm))
+
+
+def main():
+    train_data = load_data('cell_price_data/train.csv')
+    X, y = get_X_y(train_data)
+    # explore_data(train_data, X)
+    X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2, random_state=7)
+
+    model = Model(X_train, y_train, X_valid, y_valid)
+    # model.train_model(clf=model.rfc)
+    # model.train_model(clf=model.knn)
+    model.train_model(clf=model.svm_clf)
+
+    # predict_labels('cell_price_data/test.csv', model.rfc)
+    # predict_labels('cell_price_data/test.csv', model.knn)
+    # predict_labels('cell_price_data/test.csv', model.svm_clf)
 
 
 if __name__ == '__main__':
